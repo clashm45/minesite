@@ -2,7 +2,7 @@ restExsample
 ===============
 
 this git remote url
-http://10.20.132.250:8080/gitbucket/arikawa/restExsample
+https://github.com/clashm45/minesite
 
 ## env
 
