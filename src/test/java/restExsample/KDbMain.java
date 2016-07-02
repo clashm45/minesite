@@ -1,18 +1,25 @@
-package rest;
+package restExsample;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
 
+import com.mongodb.MongoClient;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
+import common.model.DailyChart;
 import net.arnx.jsonic.JSON;
 
 public class KDbMain {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Client c = Client.create();
 		WebResource r = c.resource("http://k-db.com/stocks/2121-T");
@@ -43,6 +50,7 @@ public class KDbMain {
 			.collect(Collectors.toList());
 
 			DailyChart dc = new DailyChart();
+			dc.setCompany("mixi");
 			dc.setDate(vals.get(0));
 			dc.setOpen(Double.parseDouble(vals.get(1)));
 			dc.setHigh(Double.parseDouble(vals.get(2)));
@@ -53,6 +61,11 @@ public class KDbMain {
 			return dc;
 		})
 		.collect(Collectors.toList());
+
+
+		final Morphia morphia = new Morphia();
+		final Datastore datastore = morphia.createDatastore(new MongoClient(), "stocks");
+		datastore.save(dcList);
 
 
 		JSON json = new JSON();

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="htmlHeader.xhtml" />
+<ui:insert name="extHeader" />
+<body>
+	<div id="wrapper" class="ui-g">
+		<div id="left-sidebar" class="ui-g-12 ui-md-2">
+			<ui:include src="menu.xhtml" />
+		</div>
+		<div id="contents" class="ui-g-12 ui-md-10 ui-g-nopad">
+			<div class="ui-g-12">
+				<ui:insert name="content"/>
+			</div>
+		</div>
+		<div id="footer" class="ui-g-12">
+			<ui:include src="footer.xhtml" />
+		</div>
+	</div>
+
+</body>
+
+</html>

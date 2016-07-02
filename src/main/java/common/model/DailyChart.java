@@ -1,4 +1,6 @@
-package rest;
+package common.model;
+
+import org.mongodb.morphia.annotations.Entity;
 
 import lombok.Data;
 
@@ -6,7 +8,14 @@ import lombok.Data;
  * 日足
  */
 @Data
+@Entity("dailyChart")
 public class DailyChart {
+
+	/**
+	 * 会社名
+	 */
+	private String company;
+
 	/**
 	 * 日付
 	 */
